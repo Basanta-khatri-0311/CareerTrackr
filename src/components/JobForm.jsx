@@ -80,7 +80,7 @@ const JobForm = ({ setAddJob, addJob }) => {
           />
         </div>
 
-        <div className="flex justify-end gap-4 mt-6">
+        <div className="flex justify-evenly sm:gap-4 sm:justify-end sm:items-center mt-6">
           <button
             onClick={handleSaveJob}
             type="submit"
