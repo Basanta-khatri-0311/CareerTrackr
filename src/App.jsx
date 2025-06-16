@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import JobForm from "./components/JobForm";
 import JobList from "./components/JobList";
 import FilterBar from "./components/FilterBar";
@@ -6,6 +6,8 @@ import Stats from "./components/Stats";
 
 function App() {
   const [addJob, setAddJob] = useState(false);
+
+  useEffect
 
   const handelAddJob = (e) => {
     e.preventDefault();
@@ -33,7 +35,7 @@ function App() {
         <JobList />
         <Stats />
       </div>
-      <JobForm setAddJob={setAddJob} addJob={addJob} />
+      <JobForm setAddJob={setAddJob} addJobs={addJob} />
     </>
   );
 }

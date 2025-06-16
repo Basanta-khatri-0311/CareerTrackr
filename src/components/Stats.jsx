@@ -31,7 +31,7 @@ function Stats() {
   return (
     <div className="px-4 sm:px-8 md:px-16 lg:px-36 py-8 flex flex-col gap-8">
       <h1 className="text-center text-3xl sm:text-4xl font-bold text-orange-600 underline underline-offset-8 decoration-orange-400">
-        Stats
+        STATS
       </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

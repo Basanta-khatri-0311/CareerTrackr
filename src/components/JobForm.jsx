@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useJobContext } from "./DataContext";
 
-const JobForm = ({ setAddJob, addJob }) => {
+const JobForm = ({ setAddJob, addJobs }) => {
+  const { addJob } = useJobContext();
+
   const [name, setName] = useState("");
   const [position, setPosition] = useState("");
   const [status, setStatus] = useState("");
@@ -11,6 +14,17 @@ const JobForm = ({ setAddJob, addJob }) => {
       alert("Please fill all the fields");
       return;
     }
+
+    const newJob = {
+      id: Date.now(), 
+      company: name,
+      position,
+      status: "applied",
+      date: new Date().toLocaleDateString("en-GB"), 
+    };
+
+    addJob(newJob)
+    
     setAddJob(false);
     setName("");
     setPosition("");
@@ -27,7 +41,7 @@ const JobForm = ({ setAddJob, addJob }) => {
   return (
     <div
       className={`${
-        addJob ? "flex" : "hidden"
+        addJobs ? "flex" : "hidden"
       } min-h-screen  text-white p-6 flex flex-col gap-16`}
     >
       <h1 className="text-4xl sm:text-5xl font-bold text-center underline underline-offset-8 decoration-orange-400">
