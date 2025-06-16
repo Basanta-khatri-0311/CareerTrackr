@@ -1,28 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
+import JobForm from "./components/JobForm";
 
 function App() {
+  const [addJob, setAddJob] = useState(false);
+
+  const handelAddJob = (e) => {
+    e.preventDefault();
+    setAddJob(!addJob);
+  };
   return (
-    <div className="w-full h-[100vh] bg-[#1c1c1c] text-white p-3 flex flex-col gap-24">  
-      <h1 className="text-5xl underline font-bold text-center ">Track my Jobs</h1>
-      <div className="flex  justify-around items-center text-xl">
-        <button className="border-none rounded-xl px-7 py-4 bg-gray-500 cursor-pointer">
-          + Add New Job
-        </button>
-        <div className="flex gap-5 items-center">
-          <label htmlFor="filter">Filter: </label>
-          <select
-            name=""
-            id=""
-            className="bg-gray-500 px-7 py-1 border-none outline-none rounded-xl"
+    <>
+      <div
+        className={`${
+          addJob ? "hidden" : "flex"
+        } w-full min-h-screen text-white p-3 flex flex-col gap-24`}
+      >
+        <h1 className="text-4xl sm:text-5xl font-bold text-center underline underline-offset-8 decoration-orange-400">
+          Track My Jobs
+        </h1>
+        <div className="flex flex-col sm:flex-row justify-center sm:justify-around items-center text-base  gap-6 sm:gap-10 w-full px-4">
+          <button
+            className="border-none outline-none rounded-xl px-6 py-3 w-full sm:text-xl md:text-2xl lg:4xl sm:w-auto bg-gray-500 hover:bg-gray-600 transition-all duration-300"
+            onClick={handelAddJob}
           >
-            <option value="all">All</option>
-          </select>
+            + Add New Job
+          </button>
+          <div className="flex flex-col  sm:flex-row gap-3 sm:gap-5 items-center w-full sm:w-auto">
+            <label htmlFor="filter" className="sm:text-xl md:text-2xl lg:4xl">Filter: </label>
+            <select className="bg-gray-500  sm:text-xl md:text-2xl lg:4xl px-5 py-2 w-full sm:w-auto border-none outline-none rounded-xl">
+              <option value="all">All</option>
+              <option value="interviewed">Interviewed</option>
+              <option value="offer">Offer</option>
+              <option value="rejected">Rejected</option>
+            </select>
+          </div>
         </div>
       </div>
-      <div className="">
 
-      </div>
-    </div>
+      <JobForm setAddJob={setAddJob} addJob={addJob} />
+    </>
   );
 }
 
