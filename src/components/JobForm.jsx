@@ -9,7 +9,7 @@ const JobForm = ({ setAddJob, addJob }) => {
     e.preventDefault();
     if (!name || !position || !status) {
       alert("Please fill all the fields");
-      return
+      return;
     }
     setAddJob(false);
     setName("");
