@@ -41,3 +41,66 @@ function App() {
 }
 
 export default App;
+
+// import React, { useState, useEffect } from "react";
+
+// const allBrands = [
+//   { id: "1", brandName: "puma" },
+//   { id: "2", brandName: "adidas" },
+//   { id: "3", brandName: "nike" },
+//   { id: "4", brandName: "fila" },
+//   { id: "5", brandName: "reebok" },
+// ];
+
+// function App() {
+//   const [search, setSearch] = useState("");
+//   const [productAfterSearch, setProductAfterSearch] = useState([]);
+
+//   const onSearchChange = (e) => {
+//     setSearch(e.target.value);
+//   };
+
+//   const handleSearch = (e) => {
+//     e.preventDefault();
+//     const results = allBrands.filter((value) =>
+//       value.brandName.toLowerCase().includes(search.toLowerCase())
+//     );
+//     setProductAfterSearch(results);
+//     setSearch("");
+//   };
+
+//   return (
+//     <div className="w-full min-h-screen bg-black text-white p-10">
+//       <input
+//         className="bg-gray-600 p-4"
+//         value={search}
+//         onChange={onSearchChange}
+//         type="search"
+//         name="search"
+//         placeholder="Search products..."
+//       />
+//       <button
+//         type="submit"
+//         className="bg-gray-600 p-4 ml-4 rounded-xl cursor-pointer"
+//         onClick={handleSearch}
+//       >
+//         Search
+//       </button>
+
+//       <div className="bg-green-600 mt-10 p-4 rounded">
+//         <h2 className="text-xl font-bold mb-2">Searched products:</h2>
+//         {productAfterSearch.length > 0 ? (
+//           productAfterSearch.map((brand) => (
+//             <p key={brand.id}>{brand.brandName}</p>
+//           ))
+//         ) : (
+//           <p>No products found.</p>
+//         )}
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
