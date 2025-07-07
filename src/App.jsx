@@ -1,45 +1,51 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { JobProvider } from "./context/JobContext";
 import JobForm from "./components/JobForm";
 import JobList from "./components/JobList";
 import FilterBar from "./components/FilterBar";
 import Stats from "./components/Stats";
 
 function App() {
-  const [addJob, setAddJob] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
-  useEffect
-
-  const handelAddJob = (e) => {
-    e.preventDefault();
-    setAddJob(!addJob);
-  };
   return (
-    <>
-      <div
-        className={`${
-          addJob ? "hidden" : "flex"
-        } w-full min-h-screen text-white p-3 flex flex-col gap-9`}
-      >
-        <h1 className="text-4xl sm:text-5xl font-bold  text-center underline underline-offset-8 decoration-orange-400">
-          Track My Jobs
-        </h1>
-        <div className="flex flex-col sm:flex-row justify-center sm:justify-around items-center text-base  gap-6 sm:gap-10 w-full px-4">
-          <button
-            className="flex gap-5 items-center border-none outline-none rounded-xl px-6 py-3 w-full sm:text-xl md:text-2xl lg:4xl sm:w-auto bg-gray-500 hover:bg-gray-600 transition-all duration-300"
-            onClick={handelAddJob}
-          >
-            <span>+</span> Add New Job
-          </button>
-          <FilterBar />
-        </div>
-        <JobList />
-        <Stats />
+    <JobProvider>
+      <div className="min-h-screen bg-[#1c1c1c] text-white font-sans">
+        {/* Header */}
+        <header className="text-center py-8 px-4">
+          <h1 className="text-4xl sm:text-5xl font-bold underline underline-offset-8 decoration-orange-400">
+            Track My Jobs
+          </h1>
+        </header>
+
+        {/* Add Job Button + Filter */}
+        {!showForm && (
+          <div className="flex flex-col sm:flex-row justify-center sm:justify-around items-center gap-6 px-4">
+            <button
+              onClick={() => setShowForm(true)}
+              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300"
+            >
+              + Add New Job
+            </button>
+            <FilterBar />
+          </div>
+        )}
+
+        {/* Job Form */}
+        {showForm && (
+          <JobForm onClose={() => setShowForm(false)} />
+        )}
+
+        {/* Job List + Stats */}
+        {!showForm && (
+          <>
+            <JobList onEditClick={() => setShowForm(true)} />
+            <Stats />
+          </>
+        )}
       </div>
-      <JobForm setAddJob={setAddJob} addJobs={addJob} />
-    </>
+    </JobProvider>
   );
 }
 
 export default App;
-
-
