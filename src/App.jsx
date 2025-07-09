@@ -23,7 +23,7 @@ function App() {
           <div className="flex flex-col sm:flex-row justify-center sm:justify-around items-center gap-6 px-4">
             <button
               onClick={() => setShowForm(true)}
-              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300"
+              className="bg-orange-500 hover:bg-orange-600 outline-orange-400 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300"
             >
               + Add New Job
             </button>
