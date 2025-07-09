@@ -38,22 +38,22 @@ const Stats = () => {
 
   return (
     <div className="px-4 sm:px-8 md:px-16 py-10 ">
-      <h2 className="text-3xl sm:text-4xl font-bold text-center text-orange-400 underline underline-offset-8 mb-10">
-        Job Stats
+      <h2 className="text-3xl sm:text-4xl font-bold text-center text-orange-400  mb-10">
+        JOB STATS
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat, index) => (
           <div
             key={index}
-            className={`flex items-center gap-4 p-5 rounded-xl shadow-md text-white ${stat.color}`}
+            className={`flex items-center gap-4 p-2 sm:p-4 md:p-6 rounded-xl shadow-md text-white ${stat.color}`}
           >
-            <span className="text-3xl" role="img" aria-label={stat.label}>
+            <span className="text-xl sm:text-2xl md:text-3xl" role="img" aria-label={stat.label}>
               {stat.icon}
             </span>
             <div>
-              <p className="text-sm text-gray-200">{stat.label}</p>
-              <h4 className="text-2xl font-bold">{stat.value}</h4>
+              <p className="text-sm sm:text-2xl text-gray-200">{stat.label}</p>
+              <h4 className="text-xl sm:text-2xl md:text-3xl font-bold">{stat.value}</h4>
             </div>
           </div>
         ))}

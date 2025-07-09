@@ -2,7 +2,7 @@ import React from "react";
 import { useJobContext } from "../context/JobContext";
 
 const JobList = ({ onEditClick }) => {
-  const { jobs, deleteJob, setEditingJob, setFilter, filter } = useJobContext();
+  const { jobs, deleteJob, setEditingJob, filter } = useJobContext();
 
   const filteredJobs =
     filter === "all" ? jobs : jobs.filter((job) => job.status === filter);
@@ -16,7 +16,7 @@ const JobList = ({ onEditClick }) => {
   }
 
   return (
-    <div className="w-full px-4 sm:px-8 md:px-16 overflow-x-auto mt-8">
+    <div className="w-full px-2 sm:px-8 md:px-16 overflow-x-auto mt-8">
       <table className="min-w-full table-auto border border-gray-700 text-white">
         <thead className="bg-gray-800 text-left">
           <tr>
